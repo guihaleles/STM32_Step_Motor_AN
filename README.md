@@ -4,7 +4,7 @@ This Application Note was developed as a work in the discipline of Embedded Syst
 Software examples dedicated to this application note are then detailed to show how to handle a Step Motor.
 
 ## Appliction Note
-You can access the Application Note on the following link: [AN Step Motor](https://github.com/guihaleles/STM32_Step_Motor_AN/blob/main/Aplication_note.pdf)
+You can access the Application Note on the following link: [AN Step Motor](https://github.com/guihaleles/STM32_Step_Motor_AN/blob/main/Application_Note.pdf)
 
 ## Contact the Authors
 Guilherme Leles: `guilhermehaleles@gmail.com`
