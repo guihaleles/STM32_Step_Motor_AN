@@ -1,4 +1,4 @@
-#STM32 - Step Motor Application Note
+# STM32 - Step Motor Application Note
 This Application Note was developed as a work in the discipline of Embedded Systems Programming at UFMG - Prof. Ricardo de Oliveira Duarte - Department of Electronic Engineering. The program was developed and tested with Stm32F401RE (Nucleo 64 board).
 
 Software examples dedicated to this application note are then detailed to show how to handle a Step Motor.
