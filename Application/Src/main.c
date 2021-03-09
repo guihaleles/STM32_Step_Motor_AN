@@ -61,7 +61,7 @@ static void MX_TIM1_Init(void);
 
 void stepper_set_rpm (int rpm)  // Set rpm--> max 13, min 1,,,  went to 14 rev/min
 {
-	HAL_Delay(60000/stepsperrev/rpm);
+	HAL_Delay(60000*2/stepsperrev/rpm);
 }
 
 void stepper_full_drive (int step)
@@ -109,9 +109,9 @@ void stepper_step_angle (float angle, int direction, int rpm)
 	{
 		if (direction == 0)  // for clockwise
 		{
-			for (int step=7; step>=0; step--)
+			for (int step=4; step>=0; step--)
 			{
-				stepper_half_drive(step);
+				stepper_full_drive(step);
 				stepper_set_rpm(rpm);
 			}
 
@@ -119,9 +119,9 @@ void stepper_step_angle (float angle, int direction, int rpm)
 
 		else if (direction == 1)  // for anti-clockwise
 		{
-			for (int step=0; step<8; step++)
+			for (int step=0; step<5; step++)
 			{
-				stepper_half_drive(step);
+				stepper_full_drive(step);
 				stepper_set_rpm(rpm);
 			}
 		}
@@ -164,22 +164,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);   // IN1
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);   // IN2
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);   // IN3
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);   // IN4
-
-	  for (int i=0; i<512; i++)
-	  {
-	    		  for (int i=0; i<4; i++)
-	    		  {
-	    			  stepper_full_drive(i);
-	    			  stepper_set_rpm(13);
-	    		  }
-	   }
+	  stepper_step_angle(360,0,10);
+	  stepper_step_angle(360,1,10);
 
     /* USER CODE BEGIN 3 */
   }
